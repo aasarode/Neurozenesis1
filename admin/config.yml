@@ -1,0 +1,60 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - name: "general"
+        label: "General"
+        file: "_data/general.json"
+        fields:
+          - { label: "Site Tagline", name: "tagline", widget: "string", hint: "Appears under the main heading on the home page" }
+          - { label: "Subheading", name: "subheading", widget: "string", hint: "e.g. Somatic Integration · Sacred Facilitation · Somatic Experiencing" }
+          - { label: "Hero Statement", name: "hero_statement", widget: "string", hint: "e.g. Healing is not achieved. It is inhabited." }
+          - { label: "Footer Location", name: "footer_location", widget: "string", hint: "e.g. Portland, Oregon" }
+
+      - name: "bio"
+        label: "Bio & Credentials"
+        file: "_data/bio.json"
+        fields:
+          - { label: "Bio Paragraph 1", name: "bio_p1", widget: "text", hint: "The main opening bio paragraph" }
+          - { label: "Bio Paragraph 2", name: "bio_p2", widget: "text", hint: "The Peter Levine / Croatia paragraph" }
+          - { label: "Bio Paragraph 3", name: "bio_p3", widget: "text", hint: "The Neurozenesis summary paragraph" }
+          - label: "Credentials"
+            name: "credentials"
+            widget: "list"
+            fields:
+              - { label: "Credential Line", name: "line", widget: "string" }
+
+  - name: "offerings"
+    label: "Offerings"
+    folder: "content/offerings"
+    create: false
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Subtitle", name: "subtitle", widget: "string", required: false }
+      - { label: "Intro Line", name: "intro", widget: "string", hint: "Short line under the title" }
+      - { label: "Main Description", name: "description", widget: "text" }
+      - { label: "Investment Note", name: "investment", widget: "string", hint: "e.g. Investment discussed in conversation" }
+      - label: "FAQ Items"
+        name: "faqs"
+        widget: "list"
+        fields:
+          - { label: "Question", name: "question", widget: "string" }
+          - { label: "Answer", name: "answer", widget: "text" }
+
+  - name: "blog"
+    label: "Blog"
+    folder: "content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Body", name: "body", widget: "markdown" }
