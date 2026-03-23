@@ -984,6 +984,134 @@ footer {
   footer { grid-template-columns: 1fr; padding: 3rem 2rem; }
   section { padding-left: 2rem !important; padding-right: 2rem !important; }
 }
+
+/* ── BLOG PAGE ── */
+.blog-hero {
+  min-height: 38vh; display: flex; flex-direction: column;
+  align-items: center; justify-content: flex-end;
+  padding: 8rem 2rem 4rem; text-align: center; position: relative;
+}
+.blog-section-label {
+  font-family: 'Cinzel', serif; font-size: 0.65rem;
+  letter-spacing: 0.35em; color: var(--gold-dim);
+  text-transform: uppercase; margin-bottom: 1rem;
+}
+.blog-hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.4rem, 4.5vw, 4rem);
+  font-weight: 300; color: var(--bone); line-height: 1.1; margin-bottom: 1.2rem;
+}
+.blog-hero-title em { font-style: italic; color: var(--gold-light); }
+.blog-hero-sub {
+  font-size: 0.85rem; letter-spacing: 0.18em;
+  color: var(--gold-dim); font-family: 'Cinzel', serif;
+}
+.blog-body { max-width: 1100px; margin: 0 auto; padding: 4rem 5rem; }
+.blog-featured {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 3rem; margin-bottom: 5rem; padding-bottom: 4rem;
+  border-bottom: 1px solid rgba(201,168,76,0.15);
+}
+.blog-featured-image {
+  aspect-ratio: 4/3; background: var(--deep); overflow: hidden;
+}
+.blog-featured-image img {
+  width: 100%; height: 100%; object-fit: cover;
+  opacity: 0.85; transition: opacity 0.4s;
+}
+.blog-featured-image:hover img { opacity: 1; }
+.blog-placeholder {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center; opacity: 0.15;
+}
+.blog-featured-content {
+  display: flex; flex-direction: column; justify-content: center; gap: 1.2rem;
+}
+.blog-tag {
+  font-family: 'Cinzel', serif; font-size: 0.6rem;
+  letter-spacing: 0.3em; color: var(--gold); text-transform: uppercase;
+}
+.blog-featured-content h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+  font-weight: 300; color: var(--bone); line-height: 1.2;
+}
+.blog-pull-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem; font-style: italic;
+  color: var(--gold-light); line-height: 1.6;
+  padding-left: 1rem; border-left: 1px solid var(--gold-dim);
+}
+.blog-excerpt { font-size: 0.88rem; line-height: 1.8; color: var(--ivory); opacity: 0.8; }
+.blog-meta {
+  font-size: 0.72rem; letter-spacing: 0.12em;
+  color: var(--gold-dim); font-family: 'Cinzel', serif;
+}
+.blog-read-more {
+  display: inline-block; font-family: 'Cinzel', serif;
+  font-size: 0.68rem; letter-spacing: 0.25em;
+  color: var(--gold); text-transform: uppercase;
+  border-bottom: 1px solid rgba(201,168,76,0.3);
+  padding-bottom: 2px; transition: color 0.3s, border-color 0.3s;
+  cursor: pointer; background: none;
+  border-top: none; border-left: none; border-right: none;
+}
+.blog-read-more:hover { color: var(--gold-light); border-bottom-color: var(--gold); }
+.blog-grid-label {
+  font-family: 'Cinzel', serif; font-size: 0.62rem;
+  letter-spacing: 0.3em; color: var(--gold-dim);
+  text-transform: uppercase; margin-bottom: 2rem;
+}
+.blog-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2.5rem; }
+.blog-card { display: flex; flex-direction: column; gap: 1rem; cursor: pointer; }
+.blog-card-image { aspect-ratio: 3/2; background: var(--deep); overflow: hidden; }
+.blog-card-image img {
+  width: 100%; height: 100%; object-fit: cover;
+  opacity: 0.8; transition: opacity 0.4s, transform 0.5s;
+}
+.blog-card:hover .blog-card-image img { opacity: 1; transform: scale(1.03); }
+.blog-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem; font-weight: 300; color: var(--bone); line-height: 1.3;
+}
+.blog-card .blog-pull-quote { font-size: 0.88rem; }
+.blog-card .blog-excerpt { font-size: 0.82rem; }
+.blog-post-view { display: none; max-width: 720px; margin: 0 auto; padding: 6rem 2rem; }
+.blog-post-view.active { display: block; }
+.blog-list-view.hidden { display: none; }
+.blog-back {
+  font-family: 'Cinzel', serif; font-size: 0.65rem;
+  letter-spacing: 0.25em; color: var(--gold-dim); text-transform: uppercase;
+  cursor: pointer; background: none; border: none;
+  margin-bottom: 3rem; display: flex; align-items: center; gap: 0.5rem;
+  transition: color 0.3s;
+}
+.blog-back:hover { color: var(--gold); }
+.blog-post-image { width: 100%; aspect-ratio: 16/9; object-fit: cover; margin-bottom: 2.5rem; opacity: 0.85; }
+.blog-post-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 300; color: var(--bone); line-height: 1.15; margin-bottom: 0.8rem;
+}
+.blog-post-meta {
+  font-family: 'Cinzel', serif; font-size: 0.68rem;
+  letter-spacing: 0.2em; color: var(--gold-dim);
+  margin-bottom: 2rem; padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(201,168,76,0.15);
+}
+.blog-post-pull {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem; font-style: italic;
+  color: var(--gold-light); line-height: 1.6;
+  padding: 1.5rem 2rem; border-left: 2px solid var(--gold-dim); margin: 2rem 0;
+}
+.blog-post-body { font-size: 1rem; line-height: 1.9; color: var(--ivory); }
+.blog-post-body p { margin-bottom: 1.4rem; }
+@media (max-width: 768px) {
+  .blog-featured { grid-template-columns: 1fr; }
+  .blog-grid { grid-template-columns: 1fr; }
+  .blog-body { padding: 3rem 1.5rem; }
+}
 </style>
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 <script>
@@ -1010,6 +1138,7 @@ footer {
   <ul class="nav-links">
     <li><a href="#" onclick="navigateTo('home', 'approach'); return false;">The Work</a></li>
     <li><a href="#" onclick="showPage('offerings'); return false;">Offerings</a></li>
+    <li><a href="#" onclick="showPage('blog'); return false;">The Illuminated Interior</a></li>
     <li><a href="#" onclick="navigateTo('home', 'vow'); return false;">The Vow</a></li>
     <li><a href="#" class="nav-reach" onclick="showPage('conversation'); return false;">Begin a Conversation</a></li>
   </ul>
@@ -1609,6 +1738,188 @@ footer {
 
 </div><!-- end page-offerings -->
 
+<!-- ===================== BLOG PAGE ===================== -->
+<div class="page" id="page-blog">
+
+<section class="blog-hero">
+  <div class="hero-orb"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="blog-section-label reveal">The Writing</div>
+
+  <!-- Voided soma star above title -->
+  <div class="reveal" style="margin-bottom: 1.5rem; opacity: 0.7;">
+    <svg width="48" height="48" viewBox="-72 -72 144 144" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="0" cy="0" r="62" fill="none" stroke="#c9a84c" stroke-width="1.2" opacity="0.5"/>
+      <polygon points="0,-62 13,-13 0,-7 -13,-13" fill="none" stroke="#e8c97a" stroke-width="1.2"/>
+      <polygon points="0,62 13,13 0,7 -13,13" fill="none" stroke="#c9a84c" stroke-width="1" opacity="0.65"/>
+      <polygon points="62,0 13,13 7,0 13,-13" fill="none" stroke="#c9a84c" stroke-width="1" opacity="0.65"/>
+      <polygon points="-62,0 -13,13 -7,0 -13,-13" fill="none" stroke="#c9a84c" stroke-width="1" opacity="0.65"/>
+      <circle cx="0" cy="0" r="40" fill="none" stroke="#c9a84c" stroke-width="2.5"/>
+      <polygon points="0,-40 9,-9 0,-5 -9,-9" fill="none" stroke="#e8c97a" stroke-width="1.2" opacity="0.9"/>
+      <polygon points="0,40 9,9 0,5 -9,9" fill="none" stroke="#c9a84c" stroke-width="1" opacity="0.55"/>
+      <polygon points="40,0 9,9 5,0 9,-9" fill="none" stroke="#c9a84c" stroke-width="1" opacity="0.55"/>
+      <polygon points="-40,0 -9,9 -5,0 -9,-9" fill="none" stroke="#c9a84c" stroke-width="1" opacity="0.55"/>
+      <circle cx="0" cy="0" r="24" fill="none" stroke="#c9a84c" stroke-width="1.5"/>
+      <polygon points="0,-24 5,-5 0,-2 -5,-5" fill="none" stroke="#e8c97a" stroke-width="1"/>
+      <polygon points="0,24 5,5 0,2 -5,5" fill="none" stroke="#c9a84c" stroke-width="1" opacity="0.5"/>
+      <polygon points="24,0 5,5 2,0 5,-5" fill="none" stroke="#c9a84c" stroke-width="1" opacity="0.5"/>
+      <polygon points="-24,0 -5,5 -2,0 -5,-5" fill="none" stroke="#c9a84c" stroke-width="1" opacity="0.5"/>
+      <circle cx="0" cy="0" r="10" fill="none" stroke="#e8c97a" stroke-width="2"/>
+    </svg>
+  </div>
+
+  <h1 class="blog-hero-title reveal">The<br><em>Illuminated Interior</em></h1>
+  <p class="blog-hero-sub reveal">Reflections · Essays · Curiosity &amp; Knowing in Tandem</p>
+
+  <!-- Glowing soma star below title -->
+  <div class="reveal" style="margin-top: 1.5rem; opacity: 0.85;">
+    <svg width="48" height="48" viewBox="-72 -72 144 144" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="blogGlow" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="4" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+      <circle cx="0" cy="0" r="62" fill="none" stroke="#c9a84c" stroke-width="1.2" opacity="0.5"/>
+      <polygon points="0,-62 13,-13 0,-7 -13,-13" fill="#e8c97a" filter="url(#blogGlow)"/>
+      <polygon points="0,62 13,13 0,7 -13,13" fill="#c9a84c" opacity="0.65"/>
+      <polygon points="62,0 13,13 7,0 13,-13" fill="#c9a84c" opacity="0.65"/>
+      <polygon points="-62,0 -13,13 -7,0 -13,-13" fill="#c9a84c" opacity="0.65"/>
+      <circle cx="0" cy="0" r="40" fill="none" stroke="#c9a84c" stroke-width="2.5"/>
+      <polygon points="0,-40 9,-9 0,-5 -9,-9" fill="#e8c97a" opacity="0.9" filter="url(#blogGlow)"/>
+      <polygon points="0,40 9,9 0,5 -9,9" fill="#c9a84c" opacity="0.55"/>
+      <polygon points="40,0 9,9 5,0 9,-9" fill="#c9a84c" opacity="0.55"/>
+      <polygon points="-40,0 -9,9 -5,0 -9,-9" fill="#c9a84c" opacity="0.55"/>
+      <circle cx="0" cy="0" r="24" fill="none" stroke="#c9a84c" stroke-width="1.5"/>
+      <polygon points="0,-24 5,-5 0,-2 -5,-5" fill="#e8c97a" filter="url(#blogGlow)"/>
+      <polygon points="0,24 5,5 0,2 -5,5" fill="#c9a84c" opacity="0.5"/>
+      <polygon points="24,0 5,5 2,0 5,-5" fill="#c9a84c" opacity="0.5"/>
+      <polygon points="-24,0 -5,5 -2,0 -5,-5" fill="#c9a84c" opacity="0.5"/>
+      <circle cx="0" cy="0" r="10" fill="#080b12" stroke="#e8c97a" stroke-width="2" filter="url(#blogGlow)"/>
+    </svg>
+  </div>
+</section>
+
+<div class="blog-body">
+
+  <!-- LIST VIEW -->
+  <div class="blog-list-view" id="blogListView">
+
+    <!-- FEATURED POST -->
+    <div class="blog-featured reveal" id="blog-featured-post" onclick="openPost('featured')">
+      <div class="blog-featured-image">
+        <div class="blog-placeholder">
+          <svg width="60" height="60" viewBox="-72 -72 144 144" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="0" cy="0" r="62" fill="none" stroke="#c9a84c" stroke-width="1.2" opacity="0.5"/>
+            <polygon points="0,-62 13,-13 0,-7 -13,-13" fill="#e8c97a"/>
+            <polygon points="0,62 13,13 0,7 -13,13" fill="#c9a84c" opacity="0.65"/>
+            <polygon points="62,0 13,13 7,0 13,-13" fill="#c9a84c" opacity="0.65"/>
+            <polygon points="-62,0 -13,13 -7,0 -13,-13" fill="#c9a84c" opacity="0.65"/>
+            <circle cx="0" cy="0" r="10" fill="#080b12" stroke="#e8c97a" stroke-width="2"/>
+          </svg>
+        </div>
+      </div>
+      <div class="blog-featured-content">
+        <div class="blog-tag">Featured · Essay</div>
+        <h2>The Nervous System Already Knows</h2>
+        <div class="blog-pull-quote">"There is a kind of knowing that lives beneath thought. It speaks in sensation, in the pull of a breath held too long."</div>
+        <p class="blog-excerpt">What if the most intelligent thing we could do in a moment of overwhelm is to stop trying to think our way out of it? The nervous system has been solving problems longer than language has existed...</p>
+        <div class="blog-meta">March 2026 · 8 min read</div>
+        <button class="blog-read-more" onclick="openPost('featured'); event.stopPropagation();">Read more →</button>
+      </div>
+    </div>
+
+    <!-- GRID -->
+    <div class="blog-grid-label">More from the Interior</div>
+    <div class="blog-grid">
+
+      <div class="blog-card reveal" onclick="openPost('post2')">
+        <div class="blog-card-image">
+          <div class="blog-placeholder">
+            <svg width="40" height="40" viewBox="-72 -72 144 144" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="0,-62 13,-13 0,-7 -13,-13" fill="#e8c97a"/>
+              <polygon points="0,62 13,13 0,7 -13,13" fill="#c9a84c" opacity="0.65"/>
+              <polygon points="62,0 13,13 7,0 13,-13" fill="#c9a84c" opacity="0.65"/>
+              <polygon points="-62,0 -13,13 -7,0 -13,-13" fill="#c9a84c" opacity="0.65"/>
+            </svg>
+          </div>
+        </div>
+        <div class="blog-tag">Reflection</div>
+        <h3>What Completes Itself</h3>
+        <div class="blog-pull-quote">"Trauma is not a story. It is a pattern waiting to finish itself."</div>
+        <p class="blog-excerpt">On the intelligence of incomplete gestures and what happens when the body is finally given space to finish what it started...</p>
+        <div class="blog-meta">February 2026 · 5 min read</div>
+      </div>
+
+      <div class="blog-card reveal" onclick="openPost('post3')">
+        <div class="blog-card-image">
+          <div class="blog-placeholder">
+            <svg width="40" height="40" viewBox="-72 -72 144 144" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="0" cy="0" r="40" fill="none" stroke="#c9a84c" stroke-width="2.5"/>
+              <polygon points="0,-40 9,-9 0,-5 -9,-9" fill="#e8c97a" opacity="0.9"/>
+              <polygon points="0,40 9,9 0,5 -9,9" fill="#c9a84c" opacity="0.55"/>
+            </svg>
+          </div>
+        </div>
+        <div class="blog-tag">Essay</div>
+        <h3>The Authority of Genuine Experience</h3>
+        <div class="blog-pull-quote">"Not someone above the circle. Someone woven into it."</div>
+        <p class="blog-excerpt">On what it means to facilitate from the inside out — and why the most durable leadership emerges from the body rather than the resume...</p>
+        <div class="blog-meta">January 2026 · 6 min read</div>
+      </div>
+
+      <div class="blog-card reveal" onclick="openPost('post4')">
+        <div class="blog-card-image">
+          <div class="blog-placeholder">
+            <svg width="40" height="40" viewBox="-72 -72 144 144" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="0" cy="0" r="24" fill="none" stroke="#c9a84c" stroke-width="1.5"/>
+              <polygon points="0,-24 5,-5 0,-2 -5,-5" fill="#e8c97a"/>
+              <circle cx="0" cy="0" r="10" fill="#080b12" stroke="#e8c97a" stroke-width="2"/>
+            </svg>
+          </div>
+        </div>
+        <div class="blog-tag">Reflection</div>
+        <h3>On Being Met</h3>
+        <div class="blog-pull-quote">"Awareness is not a tool for healing. It is the healing itself."</div>
+        <p class="blog-excerpt">A short reflection on the difference between being witnessed and being seen — and why only one of them actually moves something...</p>
+        <div class="blog-meta">December 2025 · 3 min read</div>
+      </div>
+
+    </div>
+  </div><!-- end blog-list-view -->
+
+  <!-- FULL POST VIEW -->
+  <div class="blog-post-view" id="blogPostView">
+    <button class="blog-back" onclick="closePost()">← Back to the Interior</button>
+    <div id="blogPostContent"></div>
+  </div>
+
+</div><!-- end blog-body -->
+
+<footer>
+  <div>
+    <a href="#" class="nav-logo" onclick="showPage('home'); return false;">Neurozenesis</a>
+    <p style="margin-top:1rem; font-size:0.82rem; opacity:0.6; line-height:1.7;">Where the nervous system remembers itself.<br>Somatic integration and sacred facilitation — rooted in Portland, Oregon. Available online.</p>
+  </div>
+  <div>
+    <h4>Explore</h4>
+    <ul>
+      <li><a href="#" onclick="showPage('offerings'); return false;">Offerings</a></li>
+      <li><a href="#" onclick="showPage('blog'); return false;">The Illuminated Interior</a></li>
+      <li><a href="#" onclick="showPage('home'); setTimeout(()=>scrollTo('vow'),120); return false;">The Healer's Vow</a></li>
+    </ul>
+  </div>
+  <div>
+    <h4>Begin</h4>
+    <ul>
+      <li><a href="#" onclick="showPage('conversation'); return false;">Start a Conversation</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">© 2026 Neurozenesis · Aarthi Sarode, OTD, OTR/L, SEP · Portland, Oregon</div>
+
+</div><!-- end page-blog -->
+
 <!-- ===================== CONVERSATION PAGE ===================== -->
 <div class="page" id="page-conversation">
 
@@ -1978,4 +2289,89 @@ document.getElementById('waitlistSubmit').addEventListener('click', async functi
     }, 5000);
   }
 });
-</script>
+
+// ── BLOG POST DATA ──
+const blogPosts = {
+  featured: {
+    tag: 'Featured · Essay',
+    title: 'The Nervous System Already Knows',
+    date: 'March 2026',
+    readTime: '8 min read',
+    pullQuote: 'There is a kind of knowing that lives beneath thought. It speaks in sensation, in the pull of a breath held too long.',
+    body: `<p>What if the most intelligent thing we could do in a moment of overwhelm is to stop trying to think our way out of it?</p>
+<p>The nervous system has been solving problems longer than language has existed. Long before the prefrontal cortex developed its extraordinary capacity for analysis and narrative, the body was already reading environments, tracking safety, moving toward what nourishes and away from what threatens. This is not primitive machinery. It is ancient intelligence.</p>
+<p>When we override that intelligence with thinking — when we insist on understanding before we allow ourselves to feel — we cut off access to the very system that knows how to resolve what we are carrying. We make the problem harder by bringing the wrong tool to it.</p>
+<p>This is not an argument against thinking. It is an argument for sequence. The body first. Then the mind. Not because the mind is inferior, but because some things cannot be metabolized through narrative alone. They need the body's participation to complete.</p>
+<p>I have watched this happen hundreds of times in clinical settings. A person arrives carrying something they have analyzed for years. They know the story. They can narrate the origin, the pattern, the meaning. And yet nothing has moved. Because knowing about something is not the same as the body knowing it. The nervous system does not update through insight. It updates through experience.</p>
+<p>The ah-ha moment — the one that actually changes something — is almost always a somatic event. Something releases. Something settles. The breath changes. A warmth spreads through the chest. These are not metaphors for psychological insight. They are the insight. The nervous system completing what was interrupted.</p>
+<p>What would it mean to trust that more? To spend less time explaining our experience to ourselves and more time simply being present with it — curious, unhurried, willing to not yet know what it means?</p>
+<p>The body already knows. The work is learning to let it finish.</p>`
+  },
+  post2: {
+    tag: 'Reflection',
+    title: 'What Completes Itself',
+    date: 'February 2026',
+    readTime: '5 min read',
+    pullQuote: 'Trauma is not a story. It is a pattern waiting to finish itself.',
+    body: `<p>There is a gesture the body begins and never finishes. A breath that starts and stops. A movement toward safety that gets interrupted before it arrives. An impulse that has no room to complete itself.</p>
+<p>This is what trauma is, at the level of the nervous system. Not the event. Not even the memory of the event. The interrupted response. The pattern held in suspension, waiting for the conditions that will allow it to finish.</p>
+<p>This understanding changes everything about how we work with what is held.</p>
+<p>If trauma is a story, we retell it until it loses its charge. If trauma is a belief, we examine and revise it. But if trauma is an incomplete gesture — a movement toward safety that was never allowed to land — then the work is not narration or revision. It is completion. Giving the interrupted response the space and safety it needs to finish.</p>
+<p>I have watched people complete gestures that have been waiting for decades. The body remembers. It knows exactly where it left off. When the conditions are right — when there is enough safety, enough presence, enough of the right kind of attention — something that has been held for thirty years can complete itself in minutes.</p>
+<p>Not because anything was forced or directed. Because it was finally allowed.</p>
+<p>This is the intelligence I trust most. Not mine. The body's.</p>`
+  },
+  post3: {
+    tag: 'Essay',
+    title: 'The Authority of Genuine Experience',
+    date: 'January 2026',
+    readTime: '6 min read',
+    pullQuote: 'Not someone above the circle. Someone woven into it.',
+    body: `<p>There is a model of facilitation that positions the facilitator above the group. The expert. The one who knows where the work leads, who has mapped the territory the participants are just entering. This model has its uses. It also has a ceiling.</p>
+<p>The ceiling is this: when the facilitator stands above the circle, the circle cannot rise above the facilitator. The group can go only as far as the person at the front has gone. And the person at the front is always, in some sense, performing their competence rather than inhabiting their humanity.</p>
+<p>There is another model. The wisdom keeper. Not the one who knows, but the one who has genuinely lived the questions — who has been in the fire, lost the thread, found their way back. Whose authority comes not from training alone but from the earned intimacy of their own experience.</p>
+<p>This facilitator does not stand above the circle. They are woven into it. Their presence is not a display of expertise but an offering of genuine encounter. They can go to the places they are asking others to go because they have already been there. They are not leading from the front. They are traveling alongside.</p>
+<p>I have been both. And I know which one actually moves something.</p>
+<p>The work of becoming a wisdom keeper is not a training program. It is a life. It requires the willingness to be genuinely changed by what we facilitate — to not stand behind the professional role as armor against our own experience. To let the work work on us as much as it works through us.</p>
+<p>This is what I mean by non-hierarchical facilitation. Not that there is no structure or no holding. But that the holding comes from genuine presence rather than positional authority. From the body of lived experience rather than the credential on the wall.</p>`
+  },
+  post4: {
+    tag: 'Reflection',
+    title: 'On Being Met',
+    date: 'December 2025',
+    readTime: '3 min read',
+    pullQuote: 'Awareness is not a tool for healing. It is the healing itself.',
+    body: `<p>There is a difference between being witnessed and being met.</p>
+<p>Witnessing is observation. Accurate, attentive, even compassionate — but still a form of watching. One person sees another. The distance remains.</p>
+<p>Being met is something else. It is the moment when genuine contact occurs — when another person's presence actually lands in you and your presence actually lands in them. When the space between two people becomes alive rather than neutral. When something moves.</p>
+<p>Most of us have been witnessed far more than we have been met. We have had our stories heard, our feelings validated, our experiences acknowledged. And still something in us waits. Still something has not moved.</p>
+<p>Because what waits is not looking for acknowledgment. It is looking for contact. For the particular quality of attention that does not stand at a careful professional distance but actually arrives — curious, undefended, willing to be changed by what it encounters.</p>
+<p>This is the quality I most want to bring. Not skill. Not understanding. Contact.</p>
+<p>And I know it cannot be manufactured. It can only be cultivated — through the ongoing practice of being genuinely present with oneself, so that genuine presence with another becomes possible.</p>
+<p>The work begins there. Always.</p>`
+  }
+};
+
+function openPost(id) {
+  const post = blogPosts[id];
+  if (!post) return;
+  document.getElementById('blogListView').classList.add('hidden');
+  const view = document.getElementById('blogPostView');
+  view.classList.add('active');
+  document.getElementById('blogPostContent').innerHTML = `
+    <div class="blog-tag">${post.tag}</div>
+    <h1 class="blog-post-title">${post.title}</h1>
+    <div class="blog-post-meta">${post.date} &nbsp;·&nbsp; ${post.readTime}</div>
+    <div class="blog-post-pull">${post.pullQuote}</div>
+    <div class="blog-post-body">${post.body}</div>
+  `;
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+}
+
+function closePost() {
+  document.getElementById('blogPostView').classList.remove('active');
+  document.getElementById('blogListView').classList.remove('hidden');
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+}
