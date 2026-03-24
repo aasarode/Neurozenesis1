@@ -1,0 +1,57 @@
+backend:
+  name: git-gateway
+  branch: main
+
+publish_mode: editorial_workflow
+
+media_folder: "src/images"
+public_folder: "/"
+
+collections:
+  - name: "blog"
+    label: "Blog — The Illuminated Interior"
+    folder: "src/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "Tag", name: "tag", widget: "select", options: ["Essay", "Reflection", "Featured · Essay", "Image"], default: "Essay" }
+      - { label: "Featured Image", name: "image", widget: "image", required: false, hint: "Upload an image for this post" }
+      - { label: "Pull Quote", name: "pullQuote", widget: "string", required: false, hint: "A short striking line shown in italics" }
+      - { label: "Excerpt", name: "excerpt", widget: "text", required: false, hint: "Short preview shown on the blog listing page" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "offerings"
+    label: "Offerings"
+    folder: "src/offerings"
+    create: false
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Subtitle", name: "subtitle", widget: "string", required: false }
+      - { label: "Intro Line", name: "intro", widget: "string", hint: "Short line under the title e.g. Individual Sessions · In Person & Online" }
+      - { label: "Main Description", name: "description", widget: "text" }
+      - { label: "Investment Note", name: "investment", widget: "string" }
+      - label: "FAQ Items"
+        name: "faqs"
+        widget: "list"
+        fields:
+          - { label: "Question", name: "question", widget: "string" }
+          - { label: "Answer", name: "answer", widget: "text" }
+
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - name: "bio"
+        label: "Bio & Credentials"
+        file: "src/_data/bio.json"
+        fields:
+          - { label: "Bio Paragraph 1", name: "bio_p1", widget: "text" }
+          - { label: "Bio Paragraph 2", name: "bio_p2", widget: "text" }
+          - { label: "Bio Paragraph 3", name: "bio_p3", widget: "text" }
+          - label: "Credentials"
+            name: "credentials"
+            widget: "list"
+            fields:
+              - { label: "Credential Line", name: "line", widget: "string" }
