@@ -1,0 +1,119 @@
+---
+layout: base.njk
+title: Begin a Conversation — Neurozenesis
+permalink: /conversation/
+---
+<div class="page" id="page-conversation">
+
+<section class="conversation-hero">
+  <div class="hero-orb"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-symbol reveal">
+    <svg width="48" height="48" viewBox="-72 -72 144 144" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="0" cy="0" r="62" fill="none" stroke="#c9a84c" stroke-width="1.2" opacity="0.5"/>
+      <polygon points="0,-62 13,-13 0,-7 -13,-13" fill="#e8c97a"/>
+      <polygon points="0,62 13,13 0,7 -13,13" fill="#c9a84c" opacity="0.65"/>
+      <polygon points="62,0 13,13 7,0 13,-13" fill="#c9a84c" opacity="0.65"/>
+      <polygon points="-62,0 -13,13 -7,0 -13,-13" fill="#c9a84c" opacity="0.65"/>
+      <polygon points="0,-44 5,-5 0,-2 -5,-5" fill="#c9a84c" opacity="0.35" transform="rotate(45)"/>
+      <polygon points="0,-44 5,-5 0,-2 -5,-5" fill="#c9a84c" opacity="0.35" transform="rotate(135)"/>
+      <polygon points="0,-44 5,-5 0,-2 -5,-5" fill="#c9a84c" opacity="0.35" transform="rotate(225)"/>
+      <polygon points="0,-44 5,-5 0,-2 -5,-5" fill="#c9a84c" opacity="0.35" transform="rotate(315)"/>
+      <circle cx="0" cy="0" r="40" fill="none" stroke="#c9a84c" stroke-width="1.8"/>
+      <polygon points="0,-40 9,-9 0,-5 -9,-9" fill="#e8c97a" opacity="0.9"/>
+      <polygon points="0,40 9,9 0,5 -9,9" fill="#c9a84c" opacity="0.55"/>
+      <polygon points="40,0 9,9 5,0 9,-9" fill="#c9a84c" opacity="0.55"/>
+      <polygon points="-40,0 -9,9 -5,0 -9,-9" fill="#c9a84c" opacity="0.55"/>
+      <circle cx="0" cy="0" r="24" fill="none" stroke="#c9a84c" stroke-width="1.2" opacity="0.7"/>
+      <polygon points="0,-24 5,-5 0,-2 -5,-5" fill="#e8c97a"/>
+      <polygon points="0,24 5,5 0,2 -5,5" fill="#c9a84c" opacity="0.5"/>
+      <polygon points="24,0 5,5 2,0 5,-5" fill="#c9a84c" opacity="0.5"/>
+      <polygon points="-24,0 -5,5 -2,0 -5,-5" fill="#c9a84c" opacity="0.5"/>
+      <circle cx="0" cy="0" r="12" fill="none" stroke="#e8c97a" stroke-width="1.2" opacity="0.8"/>
+      <circle cx="0" cy="0" r="10" fill="#080b12" stroke="#e8c97a" stroke-width="1.5"/>
+    </svg>
+  </div>
+  <h1 class="section-title reveal" style="font-size: clamp(2.8rem, 5vw, 4.5rem); color: var(--bone);">Begin a<br><em>Conversation</em></h1>
+</section>
+
+<div class="conversation-body">
+  <div class="conversation-preamble">
+    <p class="reveal">Every meaningful thing that has happened in this work began with someone reaching out — not because they knew what they needed, but because something in them knew to reach.</p>
+    <p class="reveal">There is no wrong reason to be here. If something from this site stirred something in you, that is enough.</p>
+  </div>
+
+  <div class="conversation-paths reveal">
+    <div class="convo-path">
+      <div class="convo-path-label">I am curious about</div>
+      <h3>The Women's Moon Circle</h3>
+      <p>Something about gathering in this way, on the rhythm of the moon, with women who are serious about their own unfolding — feels right, even if I cannot fully name why.</p>
+    </div>
+    <div class="convo-path">
+      <div class="convo-path-label">I am looking for</div>
+      <h3>Individual Somatic Work</h3>
+      <p>Something is held in my body that I have not been able to reach through talking alone. I am ready to try a different kind of conversation — with the body itself.</p>
+    </div>
+    <div class="convo-path">
+      <div class="convo-path-label">I want to explore</div>
+      <h3>Dyad Practice</h3>
+      <p>The idea of genuine self-inquiry — of being present with another person in a structured way — draws me. I want to understand what this practice actually opens.</p>
+    </div>
+    <div class="convo-path">
+      <div class="convo-path-label">I am a</div>
+      <h3>Healthcare Provider</h3>
+      <p>I sense there is a somatic dimension to my clinical work that I have not yet been trained to see. I want to find out what that would change.</p>
+    </div>
+  </div>
+
+  <div class="conversation-form reveal">
+    <p class="form-intro">"Whatever brought you here, say it in your own words. There is no form to fill correctly — only the truth of what is moving in you."</p>
+    <div class="form-grid">
+      <div class="form-row">
+        <div class="form-field"><input id="convName" type="text" placeholder="Your Name"></div>
+        <div class="form-field"><input id="convEmail" type="email" placeholder="Your Email"></div>
+      </div>
+      <div class="form-field">
+        <select id="convTopic">
+          <option value="" disabled selected>What draws you here</option>
+          <option>Women's Moon Circle</option>
+          <option>Individual Somatic Experiencing</option>
+          <option>Dyad Meditation</option>
+          <option>Workshops &amp; Intensives</option>
+          <option>Practitioner Training</option>
+          <option>I'm not sure yet — I just wanted to reach out</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <textarea id="convMessage" placeholder="Say what is true for you right now..."></textarea>
+      </div>
+      <button class="form-submit" id="formSubmit">Send</button>
+    </div>
+    <p class="form-note">All inquiries are held with care. You will hear back within a few days.</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <a href="#" class="nav-logo" onclick="showPage('home'); return false;">Neurozenesis</a>
+    <p>Where the nervous system remembers itself. Somatic integration and sacred facilitation — rooted in Portland, Oregon. Available online.</p>
+  </div>
+  <div class="footer-col">
+    <h4>Explore</h4>
+    <ul>
+      <li><a href="#" onclick="showPage('home'); return false;">The Work</a></li>
+      <li><a href="#" onclick="showPage('offerings'); return false;">Offerings</a></li>
+      <li><a href="#" onclick="showPage('home'); setTimeout(()=>scrollTo('vow'),120); return false;">The Healer's Vow</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>About</h4>
+    <ul>
+      <li><a href="#" onclick="showPage('home'); setTimeout(()=>scrollTo('about'),120); return false;">Aarthi Sarode</a></li>
+      <li><a href="#" onclick="showPage('home'); setTimeout(()=>scrollTo('approach'),120); return false;">The Approach</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">© 2026 Neurozenesis · Aarthi Sarode, OTD, OTR/L, SEP · Portland, Oregon</div>
+
+</div>
