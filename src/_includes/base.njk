@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{{ title or 'Neurozenesis — Where the Nervous System Remembers Itself' }}</title>
-<title>Neurozenesis — Where the Nervous System Remembers Itself</title>
+<title>{{ title or "Neurozenesis — Where the Nervous System Remembers Itself" }}</title>
 <meta property="og:title" content="Neurozenesis — Where the Nervous System Remembers Itself">
 <meta property="og:description" content="Somatic integration and sacred facilitation. Where the nervous system remembers itself.">
 <meta property="og:image" content="https://neurozenesis.com/Neurozenesislogo.jpeg">
@@ -16,10 +15,21 @@
 <meta name="twitter:image" content="https://neurozenesis.com/Neurozenesislogo.jpeg">
 <link rel="icon" type="image/png" href="/favicon.png">
 <meta name="google-site-verification" content="wQMJBirWj_JbofttnfPB1kbti61TEpDjdzG3A3IlAdg">
-<meta name="google-site-verification" content="wQMJBirWj_JbofttnfPB1kbti61TEpDjdzG3A3IlAdg">
 <link rel="apple-touch-icon" href="/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Cinzel:wght@400;500&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", function(user) {
+      if (!user) {
+        window.netlifyIdentity.on("login", function() {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
 <style>
 :root {
   --midnight: #080b12;
@@ -1146,18 +1156,6 @@ img.blog-img-error + .blog-img-fallback { display: flex; }
   .blog-body { padding: 3rem 1.5rem; }
 }
 </style>
-<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-<script>
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.on("init", user => {
-      if (!user) {
-        window.netlifyIdentity.on("login", () => {
-          document.location.href = "/admin/";
-        });
-      }
-    });
-  }
-</script>
 
 </head>
 <body>
@@ -1167,13 +1165,13 @@ img.blog-img-error + .blog-img-fallback { display: flex; }
 <div class="stars" id="stars"></div>
 
 <nav>
-  <a href="/" class="nav-logo">Neurozenesis</a>
+  <a  class="nav-logo" onclick="showPage('home'); return false;">Neurozenesis</a>
   <ul class="nav-links">
-    <li><a href="#" onclick="navigateTo('home', 'approach'); return false;">The Work</a></li>
-    <li><a href="#" onclick="showPage('offerings'); return false;">Offerings</a></li>
-    <li><a href="#" onclick="showPage('blog'); return false;">The Illuminated Interior</a></li>
-    <li><a href="#" onclick="navigateTo('home', 'vow'); return false;">The Vow</a></li>
-    <li><a href="/conversation/" class="nav-reach">Begin a Conversation</a></li>
+    <li><a  href="/#approach">The Work</a></li>
+    <li><a  href="/offerings/">Offerings</a></li>
+    <li><a  href="/blog/">The Illuminated Interior</a></li>
+    <li><a  href="/#vow">The Vow</a></li>
+    <li><a  class="nav-reach" href="/conversation/">Begin a Conversation</a></li>
   </ul>
 </nav>
 
@@ -1181,51 +1179,6 @@ img.blog-img-error + .blog-img-fallback { display: flex; }
 {{ content | safe }}
 
 <script>
-// PAGE NAVIGATION
-function showPage(name) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.getElementById('page-' + name).classList.add('active');
-  document.documentElement.scrollTop = 0;
-  document.body.scrollTop = 0;
-  setTimeout(initReveal, 200);
-}
-
-function navigateTo(pageName, sectionId) {
-  const currentPage = document.querySelector('.page.active');
-  const targetPage = document.getElementById('page-' + pageName);
-  if (currentPage === targetPage) {
-    // Already on the right page, just scroll
-    const el = document.getElementById(sectionId);
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  } else {
-    // Switch page first, then scroll
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    targetPage.classList.add('active');
-    window.scrollTo({ top: 0 });
-    setTimeout(initReveal, 200);
-    setTimeout(() => {
-      const el = document.getElementById(sectionId);
-      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 600);
-  }
-}
-
-function scrollToSection(id) {
-  setTimeout(() => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  }, 300);
-}
-
-function scrollTo(id) {
-  const el = document.getElementById(id);
-  if (el) {
-    setTimeout(() => {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }, 100);
-  }
-}
-
 // CURSOR
 const cursor = document.getElementById('cursor');
 const ring = document.getElementById('cursorRing');
