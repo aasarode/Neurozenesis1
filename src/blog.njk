@@ -104,7 +104,7 @@ permalink: /blog/
     <!-- GRID -->
     <div class="blog-grid-label">More from the Interior</div>
     <div class="blog-grid">
-    {% for post in collections.posts | slice(1) %}
+    {% for post in collections.posts %}{% if not loop.first %}
       <div class="blog-card reveal">
         <a href="/blog/{{ post.fileSlug }}/" style="text-decoration:none;color:inherit;">
         <div class="blog-card-image">
@@ -122,7 +122,7 @@ permalink: /blog/
         <div class="blog-meta">{{ post.date | postDate }} &middot; {{ post.templateContent | readTime }}</div>
         </a>
       </div>
-    {% endfor %}
+    {% endif %}{% endfor %}
     </div>
 
   </div><!-- end blog-list-view -->
