@@ -3,7 +3,9 @@ layout: base.njk
 title: The Illuminated Interior — Neurozenesis
 permalink: /blog/
 ---
-<div class="page" id="page-blog">
+<script>document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll(".page").forEach(function(p){p.style.display="block";});});</script>
+
+<div class="page active" id="page-blog">
 
 <section class="blog-hero">
   <div class="hero-orb"></div>
@@ -135,21 +137,21 @@ permalink: /blog/
 
 <footer>
   <div>
-    <a href="#" class="nav-logo" onclick="showPage('home'); return false;">Neurozenesis</a>
+    <a href="/" class="nav-logo">Neurozenesis</a>
     <p style="margin-top:1rem; font-size:0.82rem; opacity:0.6; line-height:1.7;">Where the nervous system remembers itself.<br>Somatic integration and sacred facilitation — rooted in Portland, Oregon. Available online.</p>
   </div>
   <div>
     <h4>Explore</h4>
     <ul>
-      <li><a href="#" onclick="showPage('offerings'); return false;">Offerings</a></li>
-      <li><a href="#" onclick="showPage('blog'); return false;">The Illuminated Interior</a></li>
-      <li><a href="#" onclick="showPage('home'); setTimeout(()=>scrollTo('vow'),120); return false;">The Healer's Vow</a></li>
+      <li><a href="#" href="/offerings/">Offerings</a></li>
+      <li><a href="#" href="/blog/">The Illuminated Interior</a></li>
+      <li><a href="#" href="/#vow">The Healer's Vow</a></li>
     </ul>
   </div>
   <div>
     <h4>Begin</h4>
     <ul>
-      <li><a href="#" onclick="showPage('conversation'); return false;">Start a Conversation</a></li>
+      <li><a href="#" href="/conversation/">Start a Conversation</a></li>
     </ul>
   </div>
 </footer>

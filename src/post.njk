@@ -1,0 +1,47 @@
+---
+layout: base.njk
+---
+<script>document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll(".page").forEach(function(p){p.style.display="block";});});</script>
+
+<div class="page active" id="page-blog">
+<div class="blog-body">
+  <div class="blog-post-view active" style="display:block;">
+    <button class="blog-back" onclick="history.back()">&#8592; Back to the Interior</button>
+    {% if image %}
+    <img class="blog-post-image" src="/{{ image }}" alt="{{ title }}">
+    {% endif %}
+    <div class="blog-tag">{{ tag or 'Essay' }}</div>
+    <h1 class="blog-post-title">{{ title }}</h1>
+    <div class="blog-post-meta">{{ page.date | postDate }} &nbsp;&middot;&nbsp; {{ content | readTime }}</div>
+    {% if pullQuote %}
+    <div class="blog-post-pull">{{ pullQuote }}</div>
+    {% endif %}
+    <div class="blog-post-body">
+      {{ content | safe }}
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div>
+    <a href="/" class="nav-logo">Neurozenesis</a>
+    <p style="margin-top:1rem; font-size:0.82rem; opacity:0.6; line-height:1.7;">Where the nervous system remembers itself.<br>Somatic integration and sacred facilitation — rooted in Portland, Oregon. Available online.</p>
+  </div>
+  <div>
+    <h4>Explore</h4>
+    <ul>
+      <li><a href="/offerings/">Offerings</a></li>
+      <li><a href="/blog/">The Illuminated Interior</a></li>
+      <li><a href="/#vow">The Healer's Vow</a></li>
+    </ul>
+  </div>
+  <div>
+    <h4>Begin</h4>
+    <ul>
+      <li><a href="/conversation/">Start a Conversation</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">© 2026 Neurozenesis · Aarthi Sarode, OTD, OTR/L, SEP · Portland, Oregon</div>
+
+</div>
