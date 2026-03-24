@@ -1,0 +1,27 @@
+[build]
+  publish = "_site"
+  command = "npm ci && npx @11ty/eleventy"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog"
+  to = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/conversation"
+  to = "/conversation/"
+  status = 301
+
+[identity]
+  enabled = true
+
+[gateway]
+  enabled = true
