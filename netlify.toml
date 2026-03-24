@@ -1,7 +1,6 @@
 [build]
-  base = ""
   publish = "_site"
-  command = "npm run build"
+  command = "npm ci && npx @11ty/eleventy"
 
 [build.environment]
   NODE_VERSION = "18"
