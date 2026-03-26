@@ -1242,7 +1242,8 @@ function initReveal() {
 initReveal();
 
 // CONVERSATION FORM — Formspree
-document.getElementById('formSubmit').addEventListener('click', async function(e) {
+var fsEl = document.getElementById('formSubmit');
+if (fsEl) { fsEl.addEventListener('click', async function(e) {
   e.preventDefault();
   const btn = this;
   const nameVal  = document.getElementById('convName').value.trim();
@@ -1295,7 +1296,7 @@ document.getElementById('formSubmit').addEventListener('click', async function(e
       btn.style.color = '';
     }, 5000);
   }
-});
+}); }
 
 // WAITLIST MODAL
 function openWaitlist(offering) {
@@ -1308,18 +1309,19 @@ function closeWaitlist() {
   document.getElementById('waitlistModal').classList.remove('open');
   document.body.style.overflow = '';
 }
-document.getElementById('waitlistModal').addEventListener('click', function(e) {
+var wModalEl = document.getElementById('waitlistModal');
+if (wModalEl) { wModalEl.addEventListener('click', function(e) {
   if (e.target === this) closeWaitlist();
-});
+}); }
 
 // Modal open/close display toggling
-const wModal = document.getElementById('waitlistModal');
-const wObserver = new MutationObserver(() => {
-  wModal.style.display = wModal.classList.contains('open') ? 'flex' : 'none';
-});
-wObserver.observe(wModal, { attributes: true, attributeFilter: ['class'] });
+var wModal2 = document.getElementById('waitlistModal');
+if (wModal2) { var wObserver = new MutationObserver(function() {
+  wModal2.style.display = wModal2.classList.contains('open') ? 'flex' : 'none';
+}); wObserver.observe(wModal2, { attributes: true, attributeFilter: ['class'] }); }
 
-document.getElementById('waitlistSubmit').addEventListener('click', async function(e) {
+var wsEl = document.getElementById('waitlistSubmit');
+if (wsEl) { wsEl.addEventListener('click', async function(e) {
   e.preventDefault();
   const btn = this;
   const nameVal  = document.getElementById('waitlistName').value.trim();
