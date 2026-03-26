@@ -1,14 +1,20 @@
 const { DateTime } = require("luxon");
-const path = require("path");
 
 module.exports = function(eleventyConfig) {
+  // Copy admin folder
   eleventyConfig.addPassthroughCopy("src/admin");
 
+  // Copy images from repo root into _site root
+  const images = ["aarthi.jpg","NSknows.jpg","beingmet.jpeg","completesitself.jpeg","GenuineExp.jpg","Neurozenesislogo.jpeg","favicon.png"];
+  images.forEach(img => eleventyConfig.addPassthroughCopy({ [img]: img }));
+
+  // Date filter
   eleventyConfig.addFilter("postDate", (dateObj) => {
     if (!dateObj) return "";
     return DateTime.fromJSDate(new Date(dateObj)).toFormat("MMMM yyyy");
   });
 
+  // Read time filter
   eleventyConfig.addFilter("readTime", (content) => {
     if (!content) return "";
     const words = content.replace(/<[^>]*>/g, "").split(/\s+/).length;
@@ -16,6 +22,7 @@ module.exports = function(eleventyConfig) {
     return mins + " min read";
   });
 
+  // Collections
   eleventyConfig.addCollection("posts", function(collectionApi) {
     return collectionApi.getFilteredByGlob("./src/blog/*.md").reverse();
   });
