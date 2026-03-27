@@ -262,65 +262,7 @@ if (wsEl) { wsEl.addEventListener('click', async function(e) {
   }
 });
 
-// BLOG POST DATA
-var blogPosts = {
-  featured: {
-    tag: 'Featured - Essay',
-    title: 'The Nervous System Already Knows',
-    date: 'March 2026',
-    readTime: '8 min read',
-    pullQuote: 'There is a kind of knowing that lives beneath thought. It speaks in sensation, in the pull of a breath held too long.',
-    body: '<p>What if the most intelligent thing we could do in a moment of overwhelm is to stop trying to think our way out of it?</p><p>The nervous system has been solving problems longer than language has existed. Long before the prefrontal cortex developed its capacity for analysis, the body was already reading environments, tracking safety, moving toward what nourishes. This is not primitive machinery. It is ancient intelligence.</p><p>When we override that intelligence with thinking, we cut off access to the very system that knows how to resolve what we are carrying.</p><p>This is not an argument against thinking. It is an argument for sequence. The body first. Then the mind. Some things cannot be metabolized through narrative alone. They need the body to participate.</p><p>I have watched this in clinical settings. A person arrives carrying something they have analyzed for years. They know the story. And yet nothing has moved. Because knowing about something is not the same as the body knowing it. The nervous system does not update through insight. It updates through experience.</p><p>The body already knows. The work is learning to let it finish.</p>'
-  },
-  post2: {
-    tag: 'Reflection',
-    title: 'What Completes Itself',
-    date: 'February 2026',
-    readTime: '5 min read',
-    pullQuote: 'Trauma is not a story. It is a pattern waiting to finish itself.',
-    body: '<p>There is a gesture the body begins and never finishes. A breath that starts and stops. A movement toward safety that gets interrupted before it arrives.</p><p>This is what trauma is, at the level of the nervous system. Not the event. The interrupted response. The pattern held in suspension, waiting for the conditions that will allow it to finish.</p><p>This understanding changes everything about how we work with what is held.</p><p>If trauma is an incomplete gesture, then the work is not narration or revision. It is completion. Giving the interrupted response the space it needs to finish.</p><p>I have watched people complete gestures that have been waiting for decades. The body remembers. When the conditions are right, something held for thirty years can complete itself in minutes.</p><p>Not because anything was forced. Because it was finally allowed.</p>'
-  },
-  post3: {
-    tag: 'Essay',
-    title: 'The Authority of Genuine Experience',
-    date: 'January 2026',
-    readTime: '6 min read',
-    pullQuote: 'Not someone above the circle. Someone woven into it.',
-    body: '<p>There is a model of facilitation that positions the facilitator above the group. The expert. This model has its uses. It also has a ceiling.</p><p>The ceiling: when the facilitator stands above the circle, the circle cannot rise above the facilitator. The person at the front is always performing competence rather than inhabiting humanity.</p><p>There is another model. The wisdom keeper. Not the one who knows, but the one who has genuinely lived the questions. Whose authority comes from the earned intimacy of their own experience.</p><p>This facilitator is woven into the circle. Their presence is not a display of expertise but an offering of genuine encounter. They are not leading from the front. They are traveling alongside.</p><p>I have been both. And I know which one actually moves something.</p><p>The work of becoming a wisdom keeper is not a training program. It is a life.</p>'
-  },
-  post4: {
-    tag: 'Reflection',
-    title: 'On Being Met',
-    date: 'December 2025',
-    readTime: '3 min read',
-    pullQuote: 'Awareness is not a tool for healing. It is the healing itself.',
-    body: '<p>There is a difference between being witnessed and being met.</p><p>Witnessing is observation. Accurate, attentive, even compassionate. But still a form of watching. The distance remains.</p><p>Being met is something else. It is the moment when genuine contact occurs. When the space between two people becomes alive rather than neutral. When something moves.</p><p>Most of us have been witnessed far more than we have been met. We have had our stories heard, our feelings validated. And still something in us waits.</p><p>Because what waits is not looking for acknowledgment. It is looking for contact. For the quality of attention that arrives curious, undefended, willing to be changed by what it encounters.</p><p>This is the quality I most want to bring. Not skill. Not understanding. Contact.</p><p>The work begins there. Always.</p>'
-  }
-};
 
-function openPost(id) {
-  var post = blogPosts[id];
-  if (!post) return;
-  document.getElementById('blogListView').classList.add('hidden');
-  var view = document.getElementById('blogPostView');
-  view.classList.add('active');
-  document.getElementById('blogPostContent').innerHTML =
-    '<div class="blog-tag">' + post.tag + '</div>' +
-    '<h1 class="blog-post-title">' + post.title + '</h1>' +
-    '<div class="blog-post-meta">' + post.date + ' &middot; ' + post.readTime + '</div>' +
-    '<div class="blog-post-pull">' + post.pullQuote + '</div>' +
-    '<div class="blog-post-body">' + post.body + '</div>';
-  document.documentElement.scrollTop = 0;
-  document.body.scrollTop = 0;
-}
-
-function closePost() {
-  document.getElementById('blogPostView').classList.remove('active');
-  document.getElementById('blogListView').classList.remove('hidden');
-  document.documentElement.scrollTop = 0;
-  document.body.scrollTop = 0;
-  }
-};
 </script>
 </body>
 </html>
