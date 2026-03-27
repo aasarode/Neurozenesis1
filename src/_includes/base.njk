@@ -53,6 +53,20 @@
 
 {{ content | safe }}
 
+<div id="waitlistModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:9999; align-items:center; justify-content:center;">
+  <div style="background:#0d1117; border:1px solid rgba(201,168,76,0.3); padding:3rem; max-width:480px; width:90%; position:relative;">
+    <button onclick="closeWaitlist()" style="position:absolute; top:1rem; right:1.5rem; background:none; border:none; color:rgba(232,224,204,0.5); font-size:1.5rem; cursor:pointer;">×</button>
+    <div style="font-family:'Cinzel',serif; font-size:0.7rem; letter-spacing:0.15em; color:var(--gold); margin-bottom:0.5rem;">JOIN THE LIST</div>
+    <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.8rem; color:var(--bone); font-weight:300; margin-bottom:0.5rem;">Workshops &amp; Intensives</h3>
+    <p id="waitlistOfferingLabel" style="font-size:0.85rem; color:rgba(232,224,204,0.55); margin-bottom:2rem;">Be notified when dates are announced.</p>
+    <input type="hidden" id="waitlistOffering" value="">
+    <div style="display:flex; flex-direction:column; gap:1rem;">
+      <input id="waitlistName" type="text" placeholder="Your Name" style="background:rgba(255,255,255,0.04); border:1px solid rgba(201,168,76,0.25); padding:0.85rem 1rem; color:var(--bone); font-family:'Jost',sans-serif; font-size:0.9rem; width:100%; box-sizing:border-box;">
+      <input id="waitlistEmail" type="email" placeholder="Your Email" style="background:rgba(255,255,255,0.04); border:1px solid rgba(201,168,76,0.25); padding:0.85rem 1rem; color:var(--bone); font-family:'Jost',sans-serif; font-size:0.9rem; width:100%; box-sizing:border-box;">
+      <button id="waitlistSubmit" style="background:none; border:1px solid rgba(201,168,76,0.5); color:var(--gold); font-family:'Cinzel',serif; font-size:0.7rem; letter-spacing:0.15em; padding:1rem; cursor:pointer; margin-top:0.5rem;">Join the List</button>
+    </div>
+  </div>
+</div>
 <script>
 // CURSOR
 const cursor = document.getElementById('cursor');
