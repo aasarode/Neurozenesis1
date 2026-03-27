@@ -1,1 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ title or "Neurozenesis — Where the Nervous System Remembers Itself" }}</title>
+<meta property="og:title" content="Neurozenesis — Where the Nervous System Remembers Itself">
+<meta property="og:description" content="Somatic integration and sacred facilitation. Where the nervous system remembers itself.">
+<meta property="og:image" content="https://neurozenesis.com/Neurozenesislogo.jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://neurozenesis.com">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://neurozenesis.com/Neurozenesislogo.jpeg">
+<link rel="icon" type="image/png" href="/favicon.png">
+<meta name="google-site-verification" content="wQMJBirWj_JbofttnfPB1kbti61TEpDjdzG3A3IlAdg">
+<link rel="apple-touch-icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Cinzel:wght@400;500&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", function(user) {
+      if (!user) {
+        window.netlifyIdentity.on("login", function() {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
+{% include 'styles.njk' %}
 
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="stars" id="stars"></div>
+
+<nav>
+  <a  class="nav-logo" href="/">Neurozenesis</a>
+  <ul class="nav-links">
+    <li><a  href="/#approach">The Work</a></li>
+    <li><a  href="/offerings/">Offerings</a></li>
+    <li><a  href="/blog/">The Illuminated Interior</a></li>
+    <li><a  href="/#vow">The Vow</a></li>
+    <li><a  class="nav-reach" href="/conversation/">Begin a Conversation</a></li>
+  </ul>
+</nav>
+
+
+{{ content | safe }}
+
+<script>
+// CURSOR
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let mx = 0, my = 0, rx = 0, ry = 0;
+
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cursor.style.left = mx + 'px';
+  cursor.style.top = my + 'px';
+});
+
+(function animateRing() {
+  rx += (mx - rx) * 0.18;
+  ry += (my - ry) * 0.18;
+  ring.style.left = rx + 'px';
+  ring.style.top = ry + 'px';
+  requestAnimationFrame(animateRing);
+})();
+
+document.addEventListener('mouseover', e => {
+  if (e.target.closest('a, button, .service-card, .convo-path, .offering-thread, .thread')) {
+    cursor.style.width = '12px'; cursor.style.height = '12px';
+    ring.style.width = '50px'; ring.style.height = '50px';
+  }
+});
+document.addEventListener('mouseout', e => {
+  if (e.target.closest('a, button, .service-card, .convo-path, .offering-thread, .thread')) {
+    cursor.style.width = '8px'; cursor.style.height = '8px';
+    ring.style.width = '32px'; ring.style.height = '32px';
+  }
+});
+
+// STARS
+const starsEl = document.getElementById('stars');
+for (let i = 0; i < 130; i++) {
+  const s = document.createElement('div');
+  s.className = 'star';
+  s.style.left = Math.random() * 100 + '%';
+  s.style.top = Math.random() * 100 + '%';
+  const sz = Math.random() * 2 + 0.5;
+  s.style.width = sz + 'px'; s.style.height = sz + 'px';
+  s.style.setProperty('--d', (Math.random() * 4 + 2) + 's');
+  s.style.setProperty('--o', Math.random() * 0.55 + 0.1);
+  s.style.animationDelay = Math.random() * 6 + 's';
+  starsEl.appendChild(s);
+}
+
+// SCROLL REVEAL
+function initReveal() {
+  const els = document.querySelectorAll('.reveal:not(.visible)');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), 80);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  els.forEach(el => obs.observe(el));
+}
+initReveal();
+
+// CONVERSATION FORM — Formspree
+var fsEl = document.getElementById('formSubmit');
+if (fsEl) { fsEl.addEventListener('click', async function(e) {
+  e.preventDefault();
+  const btn = this;
+  const nameVal  = document.getElementById('convName').value.trim();
+  const emailVal = document.getElementById('convEmail').value.trim();
+  const topicVal = document.getElementById('convTopic').value;
+  const msgVal   = document.getElementById('convMessage').value.trim();
+
+  if (!nameVal || !emailVal) {
+    btn.textContent = 'Name & email required';
+    btn.style.borderColor = 'rgba(201,168,76,0.6)';
+    setTimeout(() => { btn.textContent = 'Send'; btn.style.borderColor = ''; }, 3000);
+    return;
+  }
+
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+
+  const data = new FormData();
+  data.append('name', nameVal);
+  data.append('email', emailVal);
+  data.append('interest', topicVal);
+  data.append('message', msgVal);
+
+  try {
+    const res = await fetch('https://formspree.io/f/xreyvdyg', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: data
+    });
+    const json = await res.json();
+    if (res.ok) {
+      btn.textContent = 'Received ✦';
+      btn.style.borderColor = 'var(--gold)';
+      btn.style.color = 'var(--gold-light)';
+      document.getElementById('convName').value = '';
+      document.getElementById('convEmail').value = '';
+      document.getElementById('convTopic').value = '';
+      document.getElementById('convMessage').value = '';
+    } else {
+      const errMsg = json.errors ? json.errors.map(e => e.message).join(', ') : 'Submission failed';
+      btn.textContent = errMsg;
+    }
+  } catch(err) {
+    btn.textContent = 'Network error — check connection';
+  } finally {
+    btn.disabled = false;
+    setTimeout(() => {
+      btn.textContent = 'Send';
+      btn.style.borderColor = '';
+      btn.style.color = '';
+    }, 5000);
+  }
+}); }
+
+// WAITLIST MODAL
+function openWaitlist(offering) {
+  document.getElementById('waitlistOffering').value = offering || '';
+  document.getElementById('waitlistOfferingLabel').textContent = offering || 'Workshops & Intensives';
+  document.getElementById('waitlistModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeWaitlist() {
+  document.getElementById('waitlistModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+var wModalEl = document.getElementById('waitlistModal');
+if (wModalEl) { wModalEl.addEventListener('click', function(e) {
+  if (e.target === this) closeWaitlist();
+}); }
+
+// Modal open/close display toggling
+var wModal2 = document.getElementById('waitlistModal');
+if (wModal2) { var wObserver = new MutationObserver(function() {
+  wModal2.style.display = wModal2.classList.contains('open') ? 'flex' : 'none';
+}); wObserver.observe(wModal2, { attributes: true, attributeFilter: ['class'] }); }
+
+var wsEl = document.getElementById('waitlistSubmit');
+if (wsEl) { wsEl.addEventListener('click', async function(e) {
+  e.preventDefault();
+  const btn = this;
+  const nameVal  = document.getElementById('waitlistName').value.trim();
+  const emailVal = document.getElementById('waitlistEmail').value.trim();
+  const offering = document.getElementById('waitlistOffering').value;
+
+  if (!nameVal || !emailVal) {
+    btn.textContent = 'Name & email required';
+    setTimeout(() => { btn.textContent = 'Join the List'; }, 3000);
+    return;
+  }
+
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  const data = new FormData();
+  data.append('name', nameVal);
+  data.append('email', emailVal);
+  data.append('interest', 'Waitlist: ' + offering);
+  data.append('message', 'Please add me to the waitlist.');
+
+  try {
+    const res = await fetch('https://formspree.io/f/xreyvdyg', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: data
+    });
+    const json = await res.json();
+    if (res.ok) {
+      btn.textContent = 'You are on the list';
+      btn.style.borderColor = 'var(--gold)';
+      btn.style.color = 'var(--gold-light)';
+      document.getElementById('waitlistName').value = '';
+      document.getElementById('waitlistEmail').value = '';
+      setTimeout(function() { closeWaitlist(); }, 2500);
+    } else {
+      const msg = json.errors ? json.errors.map(function(e) { return e.message; }).join(', ') : 'Submission failed';
+      btn.textContent = msg;
+    }
+  } catch(err) {
+    btn.textContent = 'Network error - check connection';
+  } finally {
+    btn.disabled = false;
+    setTimeout(function() {
+      btn.textContent = 'Join the List';
+      btn.style.borderColor = '';
+      btn.style.color = '';
+    }, 5000);
+  }
+});
+
+// BLOG POST DATA
+var blogPosts = {
+  featured: {
+    tag: 'Featured - Essay',
+    title: 'The Nervous System Already Knows',
+    date: 'March 2026',
+    readTime: '8 min read',
+    pullQuote: 'There is a kind of knowing that lives beneath thought. It speaks in sensation, in the pull of a breath held too long.',
+    body: '<p>What if the most intelligent thing we could do in a moment of overwhelm is to stop trying to think our way out of it?</p><p>The nervous system has been solving problems longer than language has existed. Long before the prefrontal cortex developed its capacity for analysis, the body was already reading environments, tracking safety, moving toward what nourishes. This is not primitive machinery. It is ancient intelligence.</p><p>When we override that intelligence with thinking, we cut off access to the very system that knows how to resolve what we are carrying.</p><p>This is not an argument against thinking. It is an argument for sequence. The body first. Then the mind. Some things cannot be metabolized through narrative alone. They need the body to participate.</p><p>I have watched this in clinical settings. A person arrives carrying something they have analyzed for years. They know the story. And yet nothing has moved. Because knowing about something is not the same as the body knowing it. The nervous system does not update through insight. It updates through experience.</p><p>The body already knows. The work is learning to let it finish.</p>'
+  },
+  post2: {
+    tag: 'Reflection',
+    title: 'What Completes Itself',
+    date: 'February 2026',
+    readTime: '5 min read',
+    pullQuote: 'Trauma is not a story. It is a pattern waiting to finish itself.',
+    body: '<p>There is a gesture the body begins and never finishes. A breath that starts and stops. A movement toward safety that gets interrupted before it arrives.</p><p>This is what trauma is, at the level of the nervous system. Not the event. The interrupted response. The pattern held in suspension, waiting for the conditions that will allow it to finish.</p><p>This understanding changes everything about how we work with what is held.</p><p>If trauma is an incomplete gesture, then the work is not narration or revision. It is completion. Giving the interrupted response the space it needs to finish.</p><p>I have watched people complete gestures that have been waiting for decades. The body remembers. When the conditions are right, something held for thirty years can complete itself in minutes.</p><p>Not because anything was forced. Because it was finally allowed.</p>'
+  },
+  post3: {
+    tag: 'Essay',
+    title: 'The Authority of Genuine Experience',
+    date: 'January 2026',
+    readTime: '6 min read',
+    pullQuote: 'Not someone above the circle. Someone woven into it.',
+    body: '<p>There is a model of facilitation that positions the facilitator above the group. The expert. This model has its uses. It also has a ceiling.</p><p>The ceiling: when the facilitator stands above the circle, the circle cannot rise above the facilitator. The person at the front is always performing competence rather than inhabiting humanity.</p><p>There is another model. The wisdom keeper. Not the one who knows, but the one who has genuinely lived the questions. Whose authority comes from the earned intimacy of their own experience.</p><p>This facilitator is woven into the circle. Their presence is not a display of expertise but an offering of genuine encounter. They are not leading from the front. They are traveling alongside.</p><p>I have been both. And I know which one actually moves something.</p><p>The work of becoming a wisdom keeper is not a training program. It is a life.</p>'
+  },
+  post4: {
+    tag: 'Reflection',
+    title: 'On Being Met',
+    date: 'December 2025',
+    readTime: '3 min read',
+    pullQuote: 'Awareness is not a tool for healing. It is the healing itself.',
+    body: '<p>There is a difference between being witnessed and being met.</p><p>Witnessing is observation. Accurate, attentive, even compassionate. But still a form of watching. The distance remains.</p><p>Being met is something else. It is the moment when genuine contact occurs. When the space between two people becomes alive rather than neutral. When something moves.</p><p>Most of us have been witnessed far more than we have been met. We have had our stories heard, our feelings validated. And still something in us waits.</p><p>Because what waits is not looking for acknowledgment. It is looking for contact. For the quality of attention that arrives curious, undefended, willing to be changed by what it encounters.</p><p>This is the quality I most want to bring. Not skill. Not understanding. Contact.</p><p>The work begins there. Always.</p>'
+  }
+};
+
+function openPost(id) {
+  var post = blogPosts[id];
+  if (!post) return;
+  document.getElementById('blogListView').classList.add('hidden');
+  var view = document.getElementById('blogPostView');
+  view.classList.add('active');
+  document.getElementById('blogPostContent').innerHTML =
+    '<div class="blog-tag">' + post.tag + '</div>' +
+    '<h1 class="blog-post-title">' + post.title + '</h1>' +
+    '<div class="blog-post-meta">' + post.date + ' &middot; ' + post.readTime + '</div>' +
+    '<div class="blog-post-pull">' + post.pullQuote + '</div>' +
+    '<div class="blog-post-body">' + post.body + '</div>';
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+}
+
+function closePost() {
+  document.getElementById('blogPostView').classList.remove('active');
+  document.getElementById('blogListView').classList.remove('hidden');
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+}
+</script>
+
+</script>
+</body>
+</html>
