@@ -73,20 +73,32 @@
 const cursor = document.getElementById('cursor');
 const ring = document.getElementById('cursorRing');
 let mx = 0, my = 0, rx = 0, ry = 0;
+let rafId = null;
+
+function animateRing() {
+  const dx = mx - rx;
+  const dy = my - ry;
+  rx += dx * 0.18;
+  ry += dy * 0.18;
+  ring.style.left = rx + 'px';
+  ring.style.top = ry + 'px';
+  // Stop the loop once the ring is close enough to the cursor
+  if (Math.abs(dx) > 0.1 || Math.abs(dy) > 0.1) {
+    rafId = requestAnimationFrame(animateRing);
+  } else {
+    rafId = null;
+  }
+}
 
 document.addEventListener('mousemove', e => {
   mx = e.clientX; my = e.clientY;
   cursor.style.left = mx + 'px';
   cursor.style.top = my + 'px';
+  // Only start the loop if it isn't already running
+  if (!rafId) {
+    rafId = requestAnimationFrame(animateRing);
+  }
 });
-
-(function animateRing() {
-  rx += (mx - rx) * 0.18;
-  ry += (my - ry) * 0.18;
-  ring.style.left = rx + 'px';
-  ring.style.top = ry + 'px';
-  requestAnimationFrame(animateRing);
-})();
 
 document.addEventListener('mouseover', e => {
   if (e.target.closest('a, button, .service-card, .convo-path, .offering-thread, .thread')) {
