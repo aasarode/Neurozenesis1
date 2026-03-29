@@ -5,7 +5,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/admin");
 
   // Copy images from repo root into _site root
-  const images = ["aarthi.jpg","NSknows.jpg","beingmet.jpeg","completesitself.jpeg","GenuineExp.jpg","Neurozenesislogo.jpeg","favicon.png"];
+  const images = ["aarthi.jpg","NSknows.jpg","beingmet.jpeg","completesitself.jpeg","GenuineExp.jpg","Neurozenesislogo.jpeg","favicon.png","IMG_3820.JPG"];
   images.forEach(img => eleventyConfig.addPassthroughCopy({ [img]: img }));
 
   // Date filter
