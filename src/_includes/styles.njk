@@ -397,8 +397,8 @@ section { position: relative; z-index: 1; }
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 26rem;
+  grid-template-columns: 1fr 1px 2fr;
+  gap: 4rem;
   align-items: start;
   position: relative;
   z-index: 1;
@@ -408,7 +408,11 @@ section { position: relative; z-index: 1; }
   position: sticky;
   top: 8rem;
 }
-
+.approach-vline {
+  width: 1px;
+  align-self: stretch;
+  background: linear-gradient(to bottom, transparent, rgba(201,168,76,0.4), transparent);
+}
 .approach-threads {
   display: flex;
   flex-direction: column;
