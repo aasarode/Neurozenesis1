@@ -300,8 +300,8 @@ section { position: relative; z-index: 1; }
 .hero-scroll {
   position: absolute;
   bottom: 2rem;
-  left: 0;
-  right: 0;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -418,9 +418,7 @@ section { position: relative; z-index: 1; }
 .thread {
   padding: 3rem 0;
   border-bottom: 1px solid rgba(201,168,76,0.08);
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 3rem;
+  display: block;
   align-items: start;
 }
 
@@ -442,6 +440,7 @@ section { position: relative; z-index: 1; }
   color: var(--bone);
   margin-bottom: 1rem;
   line-height: 1.2;
+  padding-left: 3rem;
 }
 
 .thread-link {
@@ -461,6 +460,7 @@ section { position: relative; z-index: 1; }
   font-size: 0.9rem;
   line-height: 1.95;
   color: rgba(232,224,204,0.6);
+  padding-left: 3rem;
 }
 
 /* ABOUT */
