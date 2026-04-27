@@ -1,8 +1,9 @@
 ---
+layout: post.njk
 title: The Mountain-What Was Always There
 date: 2026-04-27
 tag: Reflection
-image: /the-mountain.png
+image: /the-mountain.jpg
 pullQuote: Some paths are walked. Others are remembered.
 excerpt: >
   For the ones who have felt the mountain moving in them long before their feet
