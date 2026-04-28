@@ -33,7 +33,7 @@ module.exports = function(eleventyConfig) {
     const order = ["somatic-experiencing", "womens-moon-circle", "dyad-meditation", "workshops-intensives", "practitioner-training"];
     const items = collectionApi.getFilteredByGlob("./src/offerings/*.md");
     return items.sort((a, b) => {
-      return order.indexOf(a.fileSlug) - order.indexOf(b.fileSlug));
+      return order.indexOf(a.fileSlug) - order.indexOf(b.fileSlug);
     });
   });
 
