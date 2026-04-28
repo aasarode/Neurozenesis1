@@ -8,7 +8,7 @@ layout: base.njk
   <div class="blog-post-view active" style="display:block;">
     <button class="blog-back" onclick="history.back()">&#8592; Back to the Interior</button>
     {% if image %}
-    <img class="blog-post-image" src="/{{ image }}" alt="{{ title }}">
+    <img class="blog-post-image" src="{{ image }}" alt="{{ title }}">
     {% endif %}
     <div class="blog-tag">{{ tag or 'Essay' }}</div>
     <h1 class="blog-post-title">{{ title }}</h1>
