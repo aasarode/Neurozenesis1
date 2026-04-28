@@ -4,15 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{ title or "Neurozenesis — Where the Nervous System Remembers Itself" }}</title>
-<meta property="og:title" content="Neurozenesis — Where the Nervous System Remembers Itself">
-<meta property="og:description" content="Somatic integration and sacred facilitation. Where the nervous system remembers itself.">
-<meta property="og:image" content="https://neurozenesis.com/Neurozenesislogo.jpeg">
+<meta property="og:title" content="{{ title or 'Neurozenesis — Where the Nervous System Remembers Itself' }}">
+<meta property="og:description" content="{{ excerpt or 'Somatic integration and sacred facilitation. Where the nervous system remembers itself.' }}">
+<meta property="og:image" content="{{ 'https://neurozenesis.com' + image if image else 'https://neurozenesis.com/Neurozenesislogo.jpeg' }}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:url" content="https://neurozenesis.com">
-<meta property="og:type" content="website">
+<meta property="og:url" content="https://neurozenesis.com{{ page.url }}">
+<meta property="og:type" content="{{ 'article' if image else 'website' }}">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://neurozenesis.com/Neurozenesislogo.jpeg">
+<meta name="twitter:image" content="{{ 'https://neurozenesis.com' + image if image else 'https://neurozenesis.com/Neurozenesislogo.jpeg' }}">
 <link rel="icon" type="image/png" href="/favicon.png">
 <meta name="google-site-verification" content="wQMJBirWj_JbofttnfPB1kbti61TEpDjdzG3A3IlAdg">
 <link rel="apple-touch-icon" href="/favicon.png">
