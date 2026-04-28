@@ -8,8 +8,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/*.{jpg,jpeg,png,gif,webp,svg,ico}");
 
   // Copy root-level images into _site root
-  eleventyConfig.addPassthroughCopy({"aarthi.jpg":"aarthi.jpg","aarthi-origin.jpeg":"aarthi-origin.jpeg"});
-
+  eleventyConfig.addPassthroughCopy({"aarthi.jpg":"aarthi.jpg","aarthi-origin.jpeg":"aarthi-origin.jpeg","favicon.png":"favicon.png"});
   // Date filter
   eleventyConfig.addFilter("postDate", (dateObj) => {
     if (!dateObj) return "";
