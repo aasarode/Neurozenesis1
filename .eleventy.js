@@ -4,9 +4,12 @@ module.exports = function(eleventyConfig) {
   // Copy admin folder
   eleventyConfig.addPassthroughCopy("src/admin");
 
-  // Copy images from repo root into _site root
+  // Copy images from src into _site root
   eleventyConfig.addPassthroughCopy("src/*.{jpg,jpeg,png,gif,webp,svg,ico}");
-  
+
+  // Copy root-level images into _site root
+  eleventyConfig.addPassthroughCopy({"aarthi.jpg":"aarthi.jpg","aarthi-origin.jpeg":"aarthi-origin.jpeg"});
+
   // Date filter
   eleventyConfig.addFilter("postDate", (dateObj) => {
     if (!dateObj) return "";
@@ -30,7 +33,7 @@ module.exports = function(eleventyConfig) {
     const order = ["somatic-experiencing", "womens-moon-circle", "dyad-meditation", "workshops-intensives", "practitioner-training"];
     const items = collectionApi.getFilteredByGlob("./src/offerings/*.md");
     return items.sort((a, b) => {
-      return order.indexOf(a.fileSlug) - order.indexOf(b.fileSlug);
+      return order.indexOf(a.fileSlug) - order.indexOf(b.fileSlug));
     });
   });
 
