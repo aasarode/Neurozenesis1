@@ -3,7 +3,7 @@ layout: post.njk
 title: The Nervous System Already Knows
 date: 2026-03-01
 tag: Featured · Essay
-image: /NSknows.jpg
+image: NSknows.jpg
 pullQuote: There is a kind of knowing that lives beneath thought. It speaks in sensation, in the pull of a breath held too long.
 excerpt: What if the most intelligent thing we could do in a moment of overwhelm is to stop trying to think our way out of it?
 ---
